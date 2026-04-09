@@ -17,27 +17,70 @@ This repository explores fundamental statistical modeling concepts, including re
 
 ## 📊 Analysis Summary
 
-### Regression & Multicollinearity
-A multiple linear regression model was utilized to examine relationships between variables. Multicollinearity diagnostics indicated no significant issues, suggesting predictors contributed independently.
+### Regression Analysis
+A multiple linear regression model was used to examine the relationship between variables. Some predictors showed meaningful associations with the outcome, while others did not contribute significantly.
 
-A logistic regression model was also applied to identify significant predictors for binary outcomes.
+The analysis focused on interpreting variable significance and model stability rather than predictive performance.
 
-### Interaction & Multiple Comparison
-Interaction terms were introduced to capture how the effect of one variable depends on another.
+Multicollinearity diagnostics, including correlation analysis and VIF, indicated no significant issues, suggesting that predictors contributed independently.
 
-The analysis also addressed the multiplicity problem, where conducting multiple tests increases the risk of false discoveries. Approaches such as FWER and FDR were considered to balance statistical power and error control.
+A logistic regression model was also applied to analyze binary outcomes, where certain variables were identified as significant predictors.
+
+### Multicollinearity
+Multicollinearity refers to high correlations among independent variables, which can lead to unstable coefficient estimates and misleading interpretations.
+
+Potential causes include:
+- Data collection constraints
+- Model specification issues
+- Redundant or highly correlated predictors
+
+To diagnose multicollinearity:
+- Correlation matrix analysis
+- Variance Inflation Factor (VIF)
+- Eigenvalue and condition index analysis
+
+### Interaction Effects
+Interaction terms were introduced to examine how the effect of one variable changes depending on another variable.
+
+These allow the model to capture more complex relationships, though interpretation requires caution, especially in nonlinear models.
+
+### Multiple Comparison
+When conducting multiple hypothesis tests, the probability of false discoveries increases.
+
+- Type I error: rejecting a true null hypothesis  
+- Type II error: failing to reject a false null hypothesis  
+
+To address this:
+- Familywise Error Rate (FWER)
+- False Discovery Rate (FDR)
+
+FWER controls the probability of at least one false positive, while FDR controls the proportion of false positives.
 
 ### Causal Inference
-A causal graph framework was used to infer relationships based on correlation structure.
+A causal graph framework was used to infer relationships between variables based on correlation structure.
 
-Variables were identified through correlation patterns and validated using conditional independence tests, including partial correlation and d-separation.
+Variables were identified through:
+- Strength of correlations
+- Conditional independence
+- Structural assumptions
+
+Validation was performed using partial correlation to assess conditional independence.
+
+### Summary
+This project demonstrates how statistical modeling techniques can be used to:
+- Analyze relationships between variables
+- Evaluate model validity
+- Interpret statistical results
+- Infer potential causal structures
+
+The focus is on conceptual understanding and analytical reasoning rather than implementation.
 
 ## 📝 Notes
-- **Implementation**: Analysis was conducted using MATLAB
-- **Context**: This work was completed as part of a technical assessment during a research internship
-- **Data Privacy**: Proprietary datasets and assignment materials are not included
+- **Implementation**: Analysis was conducted using MATLAB  
+- **Context**: This work was completed as part of a technical assessment during a research internship  
+- **Data Privacy**: Proprietary datasets and assignment materials are not included  
 
 ## 📚 References
-- Montgomery, D. C., et al. (2021). *Introduction to Linear Regression Analysis*
-- Pearl, J., et al. (2016). *Causal Inference in Statistics: A Primer*
-- Ai, C., & Norton, E. C. (2003). *Interaction terms in logit and probit models*
+- Montgomery, D. C., et al. (2021). *Introduction to Linear Regression Analysis*  
+- Pearl, J., et al. (2016). *Causal Inference in Statistics: A Primer*  
+- Ai, C., & Norton, E. C. (2003). *Interaction terms in logit and probit models*  
