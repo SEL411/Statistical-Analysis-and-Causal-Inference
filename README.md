@@ -1,90 +1,43 @@
-# Statistical Analysis and Modeling
+# Statistical Analysis and Causal Inference
 
-This repository presents an overview of fundamental statistical concepts and modeling approaches using MATLAB.
+This repository explores fundamental statistical modeling concepts, including regression analysis, multicollinearity diagnostics, hypothesis testing, and causal inference. The project emphasizes analytical reasoning and the interpretation of statistical model outputs.
 
-## Contents
-- Multiple linear regression analysis
-- Logistic regression analysis
-- Multicollinearity (correlation matrix, VIF, condition index)
-- Interaction effects in regression models
-- Multiple comparison (Type I/II error, FWER, FDR)
-- Basic causal inference using correlation structure
+## 📌 Key Topics
+- **Regression Analysis**: Multiple linear regression and logistic regression for binary outcomes
+- **Multicollinearity**: Diagnostics using correlation matrix, Variance Inflation Factor (VIF), and condition index
+- **Interaction Effects**: Modeling complex relationships and interpretation in nonlinear models
+- **Multiple Comparison**: Addressing multiplicity issues using Familywise Error Rate (FWER) and False Discovery Rate (FDR)
+- **Causal Inference**: Identifying variables and validating structures through causal graphs and d-separation
 
-## Focus
-This project emphasizes:
-- Understanding relationships between variables
-- Interpreting statistical model outputs
-- Identifying potential issues such as multicollinearity
-- Applying statistical reasoning to model evaluation
+## 🛠 Methodology
+- **Ordinary Least Squares (OLS)** and **Maximum Likelihood Estimation (MLE)**
+- Diagnostics: VIF, condition index, and correlation matrix
+- Hypothesis testing: Type I/II error control, Bonferroni correction, Holm procedure
+- Causal analysis: partial correlation and conditional independence testing
 
-## Methods
-- Ordinary Least Squares (OLS)
-- Logistic Regression
-- Variance Inflation Factor (VIF)
-- Correlation analysis
-- Hypothesis testing
-- Multiple comparison correction methods
+## 📊 Analysis Summary
 
-## Analysis Summary
+### Regression & Multicollinearity
+A multiple linear regression model was utilized to examine relationships between variables. Multicollinearity diagnostics indicated no significant issues, suggesting predictors contributed independently.
 
-### Regression Analysis
-A multiple linear regression model was used to examine the relationship between variables. Some predictors showed meaningful associations with the outcome, while others did not contribute significantly.
+A logistic regression model was also applied to identify significant predictors for binary outcomes.
 
-Multicollinearity diagnostics, including correlation analysis and VIF, indicated no significant issues, suggesting that predictors contributed independently.
+### Interaction & Multiple Comparison
+Interaction terms were introduced to capture how the effect of one variable depends on another.
 
-A logistic regression model was also applied to analyze binary outcomes, where certain variables were identified as significant predictors.
-
-### Multicollinearity
-Multicollinearity refers to high correlations among independent variables, which can lead to unstable coefficient estimates and misleading interpretations.
-
-Potential causes include:
-- Data collection constraints
-- Model specification issues
-- Redundant or highly correlated predictors
-
-To diagnose multicollinearity:
-- Correlation matrix analysis
-- Variance Inflation Factor (VIF)
-- Eigenvalue and condition index analysis
-
-### Interaction Effects
-Interaction terms were introduced to examine how the effect of one variable changes depending on another variable.
-
-These allow the model to capture more complex relationships, though interpretation requires caution, especially in nonlinear models.
-
-### Multiple Comparison
-When conducting multiple hypothesis tests, the probability of false discoveries increases.
-
-- Type I error: rejecting a true null hypothesis  
-- Type II error: failing to reject a false null hypothesis  
-
-To address this:
-- Familywise Error Rate (FWER)
-- False Discovery Rate (FDR)
-
-FWER controls the probability of at least one false positive, while FDR controls the proportion of false positives.
+The analysis also addressed the multiplicity problem, where conducting multiple tests increases the risk of false discoveries. Approaches such as FWER and FDR were considered to balance statistical power and error control.
 
 ### Causal Inference
-A causal graph framework was used to infer relationships between variables based on correlation structure.
+A causal graph framework was used to infer relationships based on correlation structure.
 
-Variables were identified through:
-- Strength of correlations
-- Conditional independence
-- Structural assumptions
+Variables were identified through correlation patterns and validated using conditional independence tests, including partial correlation and d-separation.
 
-Validation was performed using partial correlation to assess conditional independence.
+## 📝 Notes
+- **Implementation**: Analysis was conducted using MATLAB
+- **Context**: This work was completed as part of a technical assessment during a research internship
+- **Data Privacy**: Proprietary datasets and assignment materials are not included
 
-### Summary
-This project demonstrates how statistical modeling techniques can be used to:
-- Analyze relationships between variables
-- Evaluate model validity
-- Interpret statistical results
-- Infer potential causal structures
-
-The focus is on conceptual understanding and analytical reasoning rather than implementation.
-
-## Notes
-This work was conducted as part of a technical assessment during an internship.  
-The repository focuses on conceptual understanding and interpretation rather than implementation.
-
-All datasets and proprietary materials are not included.
+## 📚 References
+- Montgomery, D. C., et al. (2021). *Introduction to Linear Regression Analysis*
+- Pearl, J., et al. (2016). *Causal Inference in Statistics: A Primer*
+- Ai, C., & Norton, E. C. (2003). *Interaction terms in logit and probit models*
