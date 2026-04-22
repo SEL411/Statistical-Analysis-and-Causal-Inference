@@ -80,7 +80,7 @@ FWER strictly controls false positives but reduces statistical power, while FDR 
 ## 🔗 Identifying Variables Using a Causal Graph
 
 <p align="center">
-  <img src="images/causal_graph.png" width="500"/>
+  <img src="images/causal_graph.png" width="600"/>
 </p>
 
 The causal graph provides the structural assumptions used to identify variables and test conditional independence in this analysis.
