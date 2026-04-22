@@ -1,14 +1,7 @@
 # Statistical Analysis and Causal Inference
 
-This repository documents my implementation and interpretation of statistical models using MATLAB, based on simulated datasets. The focus is not on predictive performance, but on understanding how model structure, statistical assumptions, and data relationships affect interpretation.
-
----
-
-## 📌 Overview
-
-I performed regression analysis, multicollinearity diagnostics, hypothesis testing under multiple comparisons, and causal inference using correlation structure and conditional independence.
-
-All analyses were conducted on simulated datasets provided for a technical assignment.
+This repository documents my implementation and interpretation of statistical models using MATLAB.
+The focus is on understanding how statistical structure and assumptions influence interpretation, rather than prediction.
 
 ---
 
@@ -30,13 +23,13 @@ I constructed a multiple linear regression model to explain jump height (y) usin
 
 #### Interpretation
 
-The results indicate that jump height is primarily determined by physical variables (height and weight), while language score does not have a statistically meaningful relationship with the outcome.
+Jump height is primarily explained by physical variables (height and weight), while language score does not show a statistically meaningful relationship.
 
 ---
 
 ### Multicollinearity Diagnostics
 
-To ensure the reliability of coefficient interpretation, I examined multicollinearity:
+To evaluate whether predictors independently contribute to the model, I examined:
 
 * Correlation matrix: all |r| < 0.1
 * Variance Inflation Factor (VIF): all < 5
@@ -44,13 +37,14 @@ To ensure the reliability of coefficient interpretation, I examined multicolline
 
 #### Interpretation
 
-These results indicate no significant multicollinearity. Therefore, each predictor contributes independently, and coefficient estimates can be interpreted without instability concerns.
+There is no evidence of multicollinearity.
+Therefore, coefficient estimates are stable and can be interpreted independently.
 
 ---
 
 ## 📈 Logistic Regression
 
-I constructed a logistic regression model to predict infection status (binary outcome):
+I applied logistic regression to model infection status (binary outcome):
 
 * x1: body temperature
 * x2: cough frequency
@@ -64,36 +58,42 @@ I constructed a logistic regression model to predict infection status (binary ou
 
 #### Interpretation
 
-Physiological variables (temperature and cough frequency) are strong predictors of infection probability, whereas behavioral exposure (public visits) is not statistically significant in this dataset.
+Physiological variables (temperature and cough frequency) are strong predictors, while behavioral exposure is not statistically significant in this dataset.
 
 ---
 
 ## ⚠️ Multiple Comparison
 
-When testing multiple hypotheses simultaneously, Type I error increases as the number of tests increases.
+When testing multiple hypotheses, the probability of Type I error increases.
 
 To address this, I examined:
 
-* Familywise Error Rate (FWER): controls probability of at least one false positive
-* False Discovery Rate (FDR): controls proportion of false positives
+* Familywise Error Rate (FWER)
+* False Discovery Rate (FDR)
 
 #### Interpretation
 
-FWER provides stricter control but can reduce statistical power, while FDR allows more discoveries at the cost of tolerating some false positives.
+FWER strictly controls false positives but reduces statistical power, while FDR allows more discoveries at the cost of tolerating some false positives.
 
 ---
 
-## 🔗 Causal Inference
+## 🔗 Identifying Variables Using a Causal Graph
+
+<p align="center">
+  <img src="images/causal_graph.png" width="500"/>
+</p>
+
+The causal graph provides the structural assumptions used to identify variables and test conditional independence in this analysis.
+
+---
 
 ### Variable Identification
 
-The dataset contains seven variables following a predefined causal graph, where only θ is labeled. The remaining variables were identified based on correlation structure.
+I inferred the identity of observed variables (x1–x6) by analyzing correlation structure:
 
-Using correlation analysis:
-
-* Variable with strongest correlation with θ → identified as **s**
-* Intermediate correlations used to infer **v**
-* Remaining variables assigned based on relational structure
+* Variable most strongly correlated with θ → identified as **s**
+* Indirect correlations → used to infer **v**
+* Remaining variables assigned based on dependency structure
 
 Final mapping:
 
@@ -106,23 +106,19 @@ Final mapping:
 
 ---
 
-### Validation using Conditional Independence
+### Validation via Conditional Independence
 
-To validate the inferred structure, I tested conditional independence using partial correlation.
+To verify the inferred structure, I tested causal graph properties using partial correlation:
 
-#### Chain structure (θ → s → v)
+* Chain (θ → s → v):
+  partialcorr(θ, v | s) ≈ 0 → conditional independence
 
-* partialcorr(θ, v | s) ≈ 0
-  → confirms conditional independence
-
-#### Collider structure (r → v ← s)
-
-* partialcorr(r, s | v) > 0
-  → dependence induced after conditioning
+* Collider (r → v ← s):
+  partialcorr(r, s | v) > 0 → dependence induced
 
 #### Interpretation
 
-The results are consistent with causal graph rules (chain and collider structures), supporting the validity of the inferred variable identities.
+The results are consistent with causal graph theory, supporting the validity of the inferred variable mapping.
 
 ---
 
@@ -142,9 +138,9 @@ The results are consistent with causal graph rules (chain and collider structure
 
 ## 📝 Notes
 
-* The dataset is simulated and does not reflect real-world phenomena
-* The focus of this project is on interpretation and reasoning, not prediction
-* All conclusions are limited to the given data structure
+* The dataset is simulated
+* The focus is on interpretation and reasoning, not prediction
+* Results are specific to the given data structure
 
 ---
 
